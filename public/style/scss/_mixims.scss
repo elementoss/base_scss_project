@@ -1,0 +1,114 @@
+@mixin clearfix(){
+    &:after{
+        display: table;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transition-all($speed: 0.2s) {
+    -webkit-transition: $speed ease-in-out;
+    -moz-transition: $speed ease-in-out;
+    -o-transition: $speed ease-in-out;
+    transition: $speed ease-in-out;
+}
+
+// ============================================================
+// MEDIA QUERIES BREAKPOINT
+// ============================================================
+@mixin respond-to($point, $modifier: null) {
+
+    // GENERIC MOBILE (TABLETS & SMARTPHONES)
+    @if $point == mobile {
+        @media (max-width: $breakPoint__desktop - 1) {
+            @content;
+        }
+    }
+
+        // SMARTPHONES
+    @else if $point == phone {
+        @media (max-width: $breakPoint__phone - 1) {
+            @content;
+        }
+    }
+
+        // TABLETS
+    @else if $point == tablet {
+        @media (max-width: $breakPoint__desktop - 1) and (min-width: $breakPoint__phone) {
+            @content;
+        }
+    }
+
+        // DESKTOPS & LAPTOPS
+    @else if $point == desktop {
+
+        @if $modifier == null {
+            @media (min-width: $breakPoint__desktop) {
+                @content;
+            }
+        }
+
+            // LARGE SCREENS
+        @else if $modifier == xl {
+            @media (min-width: $breakPoint__desktop--xl + 1) {
+                @content;
+            }
+        }
+    }
+}
+
+// ============================================================
+// HIDE ELEMENTS
+// ============================================================
+.hidden {
+    display: none !important;
+}
+.hidden--desktop {
+    @include respond-to(desktop) {
+        display: none !important;
+    }
+}
+.hidden--mobile {
+    @include respond-to(mobile) {
+        display: none !important;
+    }
+}
+.hidden--tablet {
+    @include respond-to(tablet) {
+        display: none !important;
+    }
+}
+.hidden--phone {
+    @include respond-to(phone) {
+        display: none !important;
+    }
+}
+
+// ============================================================
+// SHOW ELEMENTS
+// ============================================================
+.visible--mobile, .visible--tablet, .visible--phone {
+    display: none;
+}
+.visible--mobile {
+    @include respond-to(mobile) {
+        display: block !important;
+    }
+}
+.visible--tablet {
+    @include respond-to(tablet) {
+        display: block !important;
+    }
+}
+.visible--phone {
+    @include respond-to(phone) {
+        display: block !important;
+    }
+}
+

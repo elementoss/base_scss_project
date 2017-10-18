@@ -1,0 +1,103 @@
+.btn {
+    font-size: $base-font-size;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 15px 50px;
+    &.btn--lg {
+        padding: 15px 70px;
+    }
+    &.btn--sm {
+        padding: 15px 20px;
+    }
+    &.btn--xs {
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    &.btn--full {
+        width: 100%;
+        display: block;
+        padding: 15px 5px;
+    }
+}
+
+.btn--primary {
+    background-color: $color-sea;
+    color: #FFF;
+    &[disabled] {
+        background-color: #E3E6EA;
+        cursor: auto;
+        &:hover, &:active, &:focus {
+            background-color: #E3E6EA;
+            cursor: auto;
+        }
+    }
+    &:hover, &:active, &:focus {
+        background-color: #22A1AF;
+    }
+}
+
+.btn--grey {
+    background-color: #B9C1CA;
+    color: #FFF;
+    &[disabled] {
+        background-color: #E3E6EA;
+        cursor: auto;
+        &:hover, &:active, &:focus {
+            background-color: #E3E6EA;
+            cursor: auto;
+        }
+    }
+    &:hover, &:active, &:focus {
+        background-color: #A4ACB4;
+        color: #FFF;
+    }
+}
+
+.btn--dark {
+    background-color: $color-blue;
+    color: #FFF;
+    &[disabled] {
+        background-color: #788898;
+        cursor: auto;
+        &:hover, &:active, &:focus {
+            background-color: #788898;
+            cursor: auto;
+        }
+    }
+    &:hover, &:active, &:focus {
+        background-color: #616E7C;
+        color: #FFF;
+    }
+}
+
+.btn--border {
+    background-color: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+    &[disabled] {
+        cursor: auto;
+    }
+    &:hover, &:active, &:focus {
+        background-color: #FFF;
+        color: $color-red;
+    }
+}
+
+.btn--green {
+    background-color: $color-green;
+    color: #FFF;
+    border: 0;
+    &[disabled] {
+        cursor: auto;
+    }
+    &:hover, &:active, &:focus {
+        background-color: #58b222;
+    }
+}
